@@ -1,10 +1,6 @@
 <?php
 
-use Illuminate\Foundation\Testing\WithoutMiddleware;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Illuminate\Foundation\Testing\DatabaseTransactions;
-
-class ExampleTest extends TestCase
+class ExampleTest extends FeatureTestCase
 {
     /**
      * A basic functional test example.
@@ -13,9 +9,9 @@ class ExampleTest extends TestCase
      */
 
 //    use DatabaseMigrations; //Con esto se reiniciara la base de datos al iniciar y terminar cada prueba
-      use DatabaseTransactions; // Con esto solo reinicia la base de datos no elimina las migraciones
+//      use DatabaseTransactions; // Con esto solo reinicia la base de datos no elimina las migraciones
 
-    public function testBasicExample()
+    function test_basic_example()
     {
         $username = 'Miguel Amezcua';
         $user = factory(\App\User::class)->create([
