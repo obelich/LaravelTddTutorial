@@ -11,6 +11,8 @@
 |
 */
 
+use App\Post;
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -18,4 +20,14 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+
+
+Route::get('posts/{post}', [ //Modo usando un controlador
+    'as'=> 'posts.show',
+    'uses'=> 'PostsController@show',
+])->where('post', '\d+');
+
+//Route::get('posts/{post}', function(Post $post) { //Modo sin usar un controlador
+//    return view('posts.show', compact('post'));
+//})->name('posts.show');
 
